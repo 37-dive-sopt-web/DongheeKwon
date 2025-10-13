@@ -313,6 +313,21 @@ main {
   line-height: 1.4;
 }
 
+/* Heart container and checkbox */
+.heart-container {
+  position: relative;
+  cursor: pointer;
+}
+
+.heart-checkbox {
+  position: absolute;
+  opacity: 0;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  cursor: pointer;
+}
+
 .card__heart {
   width: 20px;
   height: 20px;
@@ -325,7 +340,7 @@ main {
   transform: scale(1.2);
 }
 
-.card__heart.liked {
+.heart-checkbox:checked + .card__heart {
   filter: grayscale(0%);
   animation: heartBeat 0.6s ease-in-out;
 }

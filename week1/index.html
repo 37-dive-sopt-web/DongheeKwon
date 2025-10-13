@@ -89,11 +89,14 @@
               <div class="card__content">
                 <div class="card__header">
                   <h2 class="card__title">루피</h2>
-                  <img
-                    class="card__heart"
-                    src="./img/heart.png"
-                    alt="heart image"
-                  />
+                  <label class="heart-container">
+                    <input type="checkbox" class="heart-checkbox" />
+                    <img
+                      class="card__heart"
+                      src="./img/heart.png"
+                      alt="heart image"
+                    />
+                  </label>
                 </div>
                 <p class="card__description">
                   루피와 함께 맛있는 음식을 먹어요
@@ -110,11 +113,14 @@
               <div class="card__content">
                 <div class="card__header">
                   <h2 class="card__title">어쩌라고</h2>
-                  <img
-                    class="card__heart"
-                    src="./img/heart.png"
-                    alt="heart image"
-                  />
+                  <label class="heart-container">
+                    <input type="checkbox" class="heart-checkbox" />
+                    <img
+                      class="card__heart"
+                      src="./img/heart.png"
+                      alt="heart image"
+                    />
+                  </label>
                 </div>
                 <p class="card__description">어쩌고 저쩌고</p>
               </div>
@@ -129,11 +135,14 @@
               <div class="card__content">
                 <div class="card__header">
                   <h2 class="card__title">시끄러</h2>
-                  <img
-                    class="card__heart"
-                    src="./img/heart.png"
-                    alt="heart image"
-                  />
+                  <label class="heart-container">
+                    <input type="checkbox" class="heart-checkbox" />
+                    <img
+                      class="card__heart"
+                      src="./img/heart.png"
+                      alt="heart image"
+                    />
+                  </label>
                 </div>
                 <p class="card__description">브이하세요 브이하세요</p>
               </div>
@@ -148,11 +157,14 @@
               <div class="card__content">
                 <div class="card__header">
                   <h2 class="card__title">안맞아요</h2>
-                  <img
-                    class="card__heart"
-                    src="./img/heart.png"
-                    alt="heart image"
-                  />
+                  <label class="heart-container">
+                    <input type="checkbox" class="heart-checkbox" />
+                    <img
+                      class="card__heart"
+                      src="./img/heart.png"
+                      alt="heart image"
+                    />
+                  </label>
                 </div>
                 <p class="card__description">...</p>
               </div>
@@ -167,11 +179,14 @@
               <div class="card__content">
                 <div class="card__header">
                   <h2 class="card__title">우울행</h2>
-                  <img
-                    class="card__heart"
-                    src="./img/heart.png"
-                    alt="heart image"
-                  />
+                  <label class="heart-container">
+                    <input type="checkbox" class="heart-checkbox" />
+                    <img
+                      class="card__heart"
+                      src="./img/heart.png"
+                      alt="heart image"
+                    />
+                  </label>
                 </div>
                 <p class="card__description">비 언제 그치냐고</p>
               </div>
@@ -186,11 +201,14 @@
               <div class="card__content">
                 <div class="card__header">
                   <h2 class="card__title">거짓말</h2>
-                  <img
-                    class="card__heart"
-                    src="./img/heart.png"
-                    alt="heart image"
-                  />
+                  <label class="heart-container">
+                    <input type="checkbox" class="heart-checkbox" />
+                    <img
+                      class="card__heart"
+                      src="./img/heart.png"
+                      alt="heart image"
+                    />
+                  </label>
                 </div>
                 <p class="card__description">짜라란</p>
               </div>
@@ -238,18 +256,5 @@
     <footer id="contact" class="footer">
       <p>안녕!</p>
     </footer>
-
-    <script>
-      // 하트 클릭 기능
-      document.addEventListener("DOMContentLoaded", function () {
-        const hearts = document.querySelectorAll(".card__heart");
-
-        hearts.forEach((heart) => {
-          heart.addEventListener("click", function () {
-            this.classList.toggle("liked");
-          });
-        });
-      });
-    </script>
   </body>
 </html>

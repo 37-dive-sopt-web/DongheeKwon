@@ -135,11 +135,26 @@ main {
   transition: all 0.3s ease;
   text-align: center;
   font-size: 14px;
+  position: relative;
+}
+
+.nav__item:first-child {
+  border-radius: 0.6rem 0.6rem 0.3rem 0.3rem;
+}
+
+.nav__item:last-child {
+  border-radius: 0.3rem 0.3rem 0.6rem 0.6rem;
+}
+
+.nav__item:not(:first-child):not(:last-child) {
+  border-radius: 0.3rem;
 }
 
 .nav__item:hover {
-  background-color: #f0f0f0;
+  background-color: #e8f4f8;
+  border-radius: 0.8rem;
   transform: translateX(0.5rem);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 /*section 공통 스타일*/
@@ -186,6 +201,7 @@ main {
 
 .hero__image:hover {
   transform: scale(1.05);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 }
 
 .hero__title {
@@ -281,6 +297,7 @@ main {
 
 .card:hover {
   transform: translateY(-0.8rem);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 }
 
 .card__image {

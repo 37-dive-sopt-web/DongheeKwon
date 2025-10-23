@@ -1,3 +1,6 @@
+import { mapFormDataToMember } from "../utils/formMapper.js";
+import { validateMemberForm } from "../utils/formValidator.js";
+
 /**
  * 폼 데이터 수집, 검증, 제출 처리를 담당하는 클래스
  */
@@ -49,9 +52,9 @@ export class FormHandler {
 
   handleModalSubmit(formSelector, onSuccess) {
     const formData = this.collectFormData(formSelector);
-    const memberData = this.mapFormDataToMember(formData, true);
+    const memberData = mapFormDataToMember(formData, true);
 
-    const validation = this.validateForm(memberData);
+    const validation = validateMemberForm(memberData);
 
     if (!validation.isValid) {
       alert(
@@ -74,7 +77,7 @@ export class FormHandler {
 
   handleFilterSubmit(formSelector, onFilter) {
     const filterData = this.collectFormData(formSelector);
-    const filter = this.mapFormDataToMember(filterData, false);
+    const filter = mapFormDataToMember(filterData, false);
 
     Object.keys(filter).forEach((key) => {
       if (!filter[key] || filter[key].trim() === "") {
@@ -88,46 +91,5 @@ export class FormHandler {
   handleFormReset(formSelector, onReset) {
     this.resetForm(formSelector);
     if (onReset) onReset();
-  }
-
-  mapFormDataToMember(formData, isModal = false) {
-    const memberData = {};
-    const prefix = isModal ? "modal-" : "";
-
-    [
-      "name",
-      "englishName",
-      "github",
-      "gender",
-      "role",
-      "codeReviewGroup",
-      "age",
-    ].forEach((key) => {
-      const formKey = isModal ? `${prefix}${key}` : key;
-      memberData[key] = formData[formKey];
-    });
-
-    return memberData;
-  }
-
-  validateForm(formData) {
-    const requiredFields = [
-      { key: "name", label: "이름" },
-      { key: "englishName", label: "영문이름" },
-      { key: "github", label: "깃허브" },
-      { key: "gender", label: "성별" },
-      { key: "role", label: "역할" },
-      { key: "codeReviewGroup", label: "금잔디조" },
-      { key: "age", label: "나이" },
-    ];
-
-    const emptyFields = requiredFields.filter(
-      (field) => !formData[field.key] || formData[field.key].trim() === ""
-    );
-
-    return {
-      isValid: emptyFields.length === 0,
-      emptyFields: emptyFields,
-    };
   }
 }

@@ -2,7 +2,7 @@ import { members } from "../constant/members.js";
 import { StorageManager } from "../service/StorageManager.js";
 
 /**
- * 회원 데이터 저장소 관리를 담당하는 클래스
+ * table data를 관리하는 클래스
  */
 export class MemberRepository {
   constructor() {

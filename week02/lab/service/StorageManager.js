@@ -25,14 +25,4 @@ export class StorageManager {
       return false;
     }
   }
-
-  clear() {
-    try {
-      localStorage.removeItem(this.storageKey);
-      return true;
-    } catch (error) {
-      console.error("데이터 삭제 실패:", error);
-      return false;
-    }
-  }
 }

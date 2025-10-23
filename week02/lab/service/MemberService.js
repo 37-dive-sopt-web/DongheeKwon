@@ -7,10 +7,22 @@ export class MemberService {
   }
 
   addMember(memberData) {
-    this.memberRepository.add(memberData);
+    try {
+      this.memberRepository.add(memberData);
+      return true;
+    } catch (error) {
+      console.error("회원 추가 중 오류 발생:", error);
+      return false;
+    }
   }
 
   deleteSelectedMembers(memberIds) {
-    this.memberRepository.deleteByIds(memberIds);
+    try {
+      this.memberRepository.deleteByIds(memberIds);
+      return true;
+    } catch (error) {
+      console.error("회원 삭제 중 오류 발생:", error);
+      return false;
+    }
   }
 }

@@ -98,8 +98,12 @@ export class MemberController {
       return;
     }
 
-    this.memberService.deleteSelectedMembers(selectedIds);
-    alert(`삭제가 완료되었습니다.`);
-    this.renderTable();
+    const success = this.memberService.deleteSelectedMembers(selectedIds);
+    if (success) {
+      alert(`삭제가 완료되었습니다.`);
+      this.renderTable();
+    } else {
+      alert("삭제에 실패했습니다.");
+    }
   }
 }

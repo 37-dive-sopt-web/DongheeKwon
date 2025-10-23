@@ -1,5 +1,5 @@
 /**
- * 회원 CRUD 작업을 담당하는 서비스 클래스
+ * 멤버 CD 작업을 담당하는 서비스 클래스
  */
 export class MemberService {
   constructor(memberRepository) {

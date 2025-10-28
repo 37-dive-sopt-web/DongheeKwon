@@ -1,0 +1,19 @@
+html {
+  font-family: "Pretendard", sans-serif;
+  font-size: 62.5%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+input:focus {
+  outline: 1px solid black;
+}
+select:focus {
+  outline: 1px solid black;
+}

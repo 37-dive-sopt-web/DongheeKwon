@@ -30,8 +30,8 @@
       "@/*": ["./src/*"],
       "@styles/*": ["./src/styles/*"],
       "@pages/*": ["./src/pages/*"],
-      "@components/*": ["./src/components/*"],
-      "@lib/*": ["./src/lib/*"]
+      "@components/*": ["src/shared/components/*"],
+      "@router/*": ["./src/router/*"]
     }
   },
   "include": ["src"]

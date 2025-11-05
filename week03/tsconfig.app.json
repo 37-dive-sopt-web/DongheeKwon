@@ -31,7 +31,8 @@
       "@styles/*": ["./src/styles/*"],
       "@pages/*": ["./src/pages/*"],
       "@components/*": ["src/shared/components/*"],
-      "@router/*": ["./src/router/*"]
+      "@router/*": ["./src/router/*"],
+      "@utils/*": ["src/shared/utils/*"]
     }
   },
   "include": ["src"]

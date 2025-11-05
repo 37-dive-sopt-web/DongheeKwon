@@ -31,7 +31,9 @@ export default function BoardSection() {
     if (isWin) {
       saveRanking({
         level,
-        clearTime: Math.round(LEVELS[level].timeLimit - timeRemaining),
+        clearTime: Math.round(
+          LEVELS[level as keyof typeof LEVELS].timeLimit - timeRemaining
+        ),
         timestamp: new Date(),
       });
     }
@@ -42,7 +44,9 @@ export default function BoardSection() {
     closeModal();
 
     // 게임 초기화
-    handleReset();
+    setTimeout(() => {
+      handleReset();
+    }, 3000);
   };
 
   return (

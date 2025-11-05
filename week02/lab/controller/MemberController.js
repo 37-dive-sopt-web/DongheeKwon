@@ -2,8 +2,7 @@
  * 회원 테이블 UI 렌더링 및 이벤트 처리를 담당하는 클래스
  */
 export class MemberController {
-  constructor(memberRepository, memberService) {
-    this.memberRepository = memberRepository;
+  constructor(memberService) {
     this.memberService = memberService;
     this.currentFilter = {};
   }
@@ -12,10 +11,8 @@ export class MemberController {
     const tbody = document.querySelector(".table tbody");
     if (!tbody) return;
 
-    const filteredMembers = this.memberRepository.findByFilter(
-      this.currentFilter
-    );
-    const totalMembers = this.memberRepository.members.length;
+    const filteredMembers = this.memberService.findByFilter(this.currentFilter);
+    const totalMembers = this.memberService.getTotalMembersCount();
 
     if (filteredMembers.length === 0) {
       tbody.innerHTML = `

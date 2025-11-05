@@ -1,5 +1,5 @@
 /**
- * 회원 Create, Delete 작업을 담당하는 서비스 클래스
+ * 회원 Create, Delete, Read 작업을 담당하는 서비스 클래스
  */
 export class MemberService {
   constructor(memberRepository) {
@@ -24,5 +24,13 @@ export class MemberService {
       console.error("회원 삭제 중 오류 발생:", error);
       return false;
     }
+  }
+
+  findByFilter(filter = {}) {
+    return this.memberRepository.findByFilter(filter);
+  }
+
+  getTotalMembersCount() {
+    return this.memberRepository.members.length;
   }
 }

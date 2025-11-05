@@ -1,33 +1,13 @@
 import { mapFormDataToMember } from "../utils/formMapper.js";
 import { validateMemberForm } from "../utils/formValidator.js";
-
+import FormService from "../service/FormService.js";
 /**
  * 폼 데이터 수집, 검증, 제출 처리를 담당하는 클래스
  */
 export class FormHandler {
   constructor(memberService) {
     this.memberService = memberService;
-  }
-
-  collectFormData(formSelector) {
-    const form = document.querySelector(formSelector);
-    if (!form) return {};
-
-    const data = {};
-    const inputs = form.querySelectorAll("input, select");
-    inputs.forEach((input) => {
-      if (input.type === "radio") {
-        if (input.checked) {
-          data[input.name] = input.value;
-        }
-      } else if (input.type === "checkbox") {
-        data[input.name] = input.checked;
-      } else {
-        data[input.name || input.id] = input.value;
-      }
-    });
-
-    return data;
+    this.formService = new FormService();
   }
 
   resetForm(formSelector) {
@@ -51,7 +31,7 @@ export class FormHandler {
   }
 
   handleModalSubmit(formSelector, onSuccess) {
-    const formData = this.collectFormData(formSelector);
+    const formData = this.formService.collectFormData(formSelector);
     const memberData = mapFormDataToMember(formData, true);
 
     const validation = validateMemberForm(memberData);
@@ -76,7 +56,7 @@ export class FormHandler {
   }
 
   handleFilterSubmit(formSelector, onFilter) {
-    const filterData = this.collectFormData(formSelector);
+    const filterData = this.formService.collectFormData(formSelector);
     const filter = mapFormDataToMember(filterData, false);
 
     Object.keys(filter).forEach((key) => {

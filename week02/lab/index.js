@@ -6,7 +6,7 @@ import { MemberService } from "./service/MemberService.js";
 // 클래스 인스턴스 생성
 const memberRepository = new MemberRepository();
 const memberService = new MemberService(memberRepository);
-const memberController = new MemberController(memberRepository, memberService);
+const memberController = new MemberController(memberService);
 const formHandler = new FormHandler(memberService);
 
 // DOM 요소들

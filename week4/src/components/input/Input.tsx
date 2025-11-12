@@ -1,10 +1,7 @@
 import React from "react";
 
-interface InputProp extends React.InputHTMLAttributes<HTMLInputElement> {
-  placeholder: string;
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}
+interface InputProp extends React.InputHTMLAttributes<HTMLInputElement> {}
+
 export default function Input({
   placeholder,
   value,

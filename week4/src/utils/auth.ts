@@ -16,4 +16,3 @@ export const removeUserId = (): void => {
 export const isAuthenticated = (): boolean => {
   return getUserId() !== null;
 };
-

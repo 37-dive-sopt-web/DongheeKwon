@@ -6,6 +6,7 @@ import AuthLayout from "@pages/auth/AuthLayout";
 import SignUp from "@pages/auth/sign-up/SignUp";
 import Login from "@pages/auth/log-in/Login";
 import MyPage from "@pages/my-page/MyPage";
+import ProtectedRoute from "@router/ProtectedRoute";
 
 export const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ export const router = createBrowserRouter([
   },
   {
     path: ROUTES.MY_PAGE,
-    element: <MyPage />,
+    element: (
+      <ProtectedRoute>
+        <MyPage />
+      </ProtectedRoute>
+    ),
   },
 ]);

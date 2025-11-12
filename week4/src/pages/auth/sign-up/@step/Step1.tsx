@@ -6,7 +6,7 @@ import { Button, Input } from "@components/index";
 
 interface Step1Props {
   handleStep: (_nextStep: "password") => void;
-  updateUsernameChange: (username: string) => void;
+  updateUsernameChange: (_username: string) => void;
   username: string;
   error?: string;
 }

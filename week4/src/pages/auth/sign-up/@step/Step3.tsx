@@ -9,14 +9,10 @@ interface Step3Props {
   name: string;
   email: string;
   age: string;
-  handleNameChange: (name: string) => void;
-  handleEmailChange: (email: string) => void;
-  handleAgeChange: (age: string) => void;
-  errors?: {
-    name?: string;
-    email?: string;
-    age?: string;
-  };
+  handleNameChange: (_name: string) => void;
+  handleEmailChange: (_email: string) => void;
+  handleAgeChange: (_age: string) => void;
+  error?: string;
 }
 export default function Step3({
   handleSubmit,
@@ -26,7 +22,7 @@ export default function Step3({
   handleNameChange,
   handleEmailChange,
   handleAgeChange,
-  errors,
+  error,
 }: Step3Props) {
   return (
     <div className="flex flex-col gap-[1.5rem]">
@@ -45,9 +41,7 @@ export default function Step3({
         value={age}
         onChange={(e) => handleAgeChange(e.target.value.trim())}
       />
-      {errors?.name && <p className="text-red body-size-14">{errors.name}</p>}
-      {errors?.email && <p className="text-red body-size-14">{errors.email}</p>}
-      {errors?.age && <p className="text-red body-size-14">{errors.age}</p>}
+      {error && <p className="text-red body-size-14">{error}</p>}
       <div className="flex flex-col gap-[1rem]">
         <Button onClick={handleSubmit}>회원가입</Button>
         <Link

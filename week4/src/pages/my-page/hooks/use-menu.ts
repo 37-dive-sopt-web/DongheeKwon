@@ -3,8 +3,10 @@ import { useNavigate } from "react-router-dom";
 
 import { MENUS } from "@pages/my-page/components/constants/menus";
 import { ROUTES } from "@router/constants/routes";
+import { deleteProfile } from "../apis/delete-profile";
+import { removeUserId } from "@utils/auth";
 
-export const useMenu = () => {
+export const useMenu = (userId: number) => {
   const [selectedMenu, setSelectedMenu] = useState<string>(MENUS[0].key);
   const navigate = useNavigate();
   const handleSelectMenu = (key: string) => {
@@ -18,14 +20,19 @@ export const useMenu = () => {
   };
 
   const handleLogout = () => {
-    alert("로그아웃");
+    removeUserId();
+    alert("로그아웃 되었습니다.");
     navigate(ROUTES.LOG_IN);
-    console.log("로그아웃");
   };
-  const handleWithdrawal = () => {
-    alert("회원탈퇴");
+  const handleWithdrawal = async () => {
+    try {
+      await deleteProfile(Number(userId));
+      removeUserId();
+      alert("회원탈퇴 되었습니다.");
+    } catch (error) {
+      console.error(error);
+    }
     navigate(ROUTES.LOG_IN);
-    console.log("회원탈퇴");
   };
 
   return { selectedMenu, handleSelectMenu };

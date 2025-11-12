@@ -2,7 +2,7 @@ import React from "react";
 
 import { cn } from "@utils/cn";
 
-interface InputProp extends React.InputHTMLAttributes<HTMLInputElement> {}
+type InputProp = React.InputHTMLAttributes<HTMLInputElement>;
 
 export default function Input({
   placeholder,

@@ -1,16 +1,19 @@
+import { useEffect } from "react";
 import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import {
   profileUpdateSchema,
   type ProfileUpdateData,
-} from "@pages/auth/sign-up/constants/schema";
+} from "@pages/my-page/constants/shema.";
+import { updateProfile } from "@pages/my-page/apis/update-profile";
 
-export const useProfile = (initialData: ProfileUpdateData) => {
+export const useProfile = (initialData: ProfileUpdateData, userId: number) => {
   const {
     handleSubmit: handleSubmitForm,
     setValue,
     control,
+    reset,
     formState: { errors },
   } = useForm<ProfileUpdateData>({
     resolver: zodResolver(profileUpdateSchema),
@@ -20,8 +23,17 @@ export const useProfile = (initialData: ProfileUpdateData) => {
 
   const formData = useWatch({ control });
 
-  const handleSubmit = handleSubmitForm((data) => {
-    console.log(data);
+  useEffect(() => {
+    reset(initialData);
+  }, [initialData, reset]);
+
+  const handleSubmit = handleSubmitForm(async (data) => {
+    try {
+      await updateProfile(userId, data);
+      alert("프로필 업데이트가 완료되었습니다.");
+    } catch (error) {
+      console.error(error);
+    }
   });
 
   const updateNameChange = (name: string) => {

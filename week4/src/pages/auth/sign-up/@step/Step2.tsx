@@ -8,8 +8,8 @@ interface Step2Props {
   handleStep: (_nextStep: "details") => void;
   password: string;
   confirmPassword: string;
-  handlePasswordChange: (password: string) => void;
-  handleConfirmPasswordChange: (confirmPassword: string) => void;
+  handlePasswordChange: (_password: string) => void;
+  handleConfirmPasswordChange: (_confirmPassword: string) => void;
   error?: string;
 }
 

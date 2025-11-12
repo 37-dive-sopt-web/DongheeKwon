@@ -22,6 +22,7 @@ export default tseslint.config(
         IntersectionObserver: "readonly",
         IntersectionObserverInit: "readonly",
         IntersectionObserverEntry: "readonly",
+        RequestInit: "readonly",
       },
     },
     plugins: {

@@ -34,7 +34,7 @@ export default function SignUp() {
           confirmPassword={formData.confirmPassword ?? ""}
           handlePasswordChange={updatePasswordChange}
           handleConfirmPasswordChange={updateConfirmPasswordChange}
-          error={errors.password}
+          error={errors.password || errors.confirmPassword}
         />
       )}
       {step === "details" && (
@@ -46,11 +46,7 @@ export default function SignUp() {
           handleNameChange={updateNameChange}
           handleEmailChange={updateEmailChange}
           handleAgeChange={updateAgeChange}
-          errors={{
-            name: errors.name,
-            email: errors.email,
-            age: errors.age,
-          }}
+          error={errors.name || errors.email || errors.age}
         />
       )}
     </div>

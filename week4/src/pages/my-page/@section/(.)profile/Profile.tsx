@@ -2,13 +2,20 @@ import { Button, Input } from "@components/index";
 import { useProfile } from "@pages/my-page/hooks/use-profile";
 
 interface ProfileProps {
+  userId: number;
   username: string;
   name: string;
   email: string;
   age: number;
 }
 
-export default function Profile({ username, name, email, age }: ProfileProps) {
+export default function Profile({
+  userId,
+  username,
+  name,
+  email,
+  age,
+}: ProfileProps) {
   const {
     formData,
     updateNameChange,
@@ -16,11 +23,14 @@ export default function Profile({ username, name, email, age }: ProfileProps) {
     updateAgeChange,
     handleSubmit,
     errors,
-  } = useProfile({
-    name,
-    email,
-    age: age.toString(),
-  });
+  } = useProfile(
+    {
+      name: name ?? "",
+      email: email ?? "",
+      age: age.toString(),
+    },
+    Number(userId)
+  );
 
   return (
     <div className="flex flex-col gap-[1.5rem]">

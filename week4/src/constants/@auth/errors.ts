@@ -1,5 +1,6 @@
 export const ERRORS = {
   ID_REQUIRED: "아이디를 입력해주세요.",
+  ID_MAX_LENGTH: "아이디는 50자 이하로 입력해주세요.",
   PASSWORD_REQUIRED: "비밀번호를 입력해주세요.",
   PASSWORD_INVALID:
     "비밀번호는 공백 없이 8~64자이며, 대/소문자/숫자/특수문자를 각각 1자 이상 포함해야 합니다.",

@@ -1,8 +1,8 @@
-import { apiRequest } from "@/api/apiRequest";
-import type { ProfileResponse } from "./get-profile";
-import type { ProfileUpdateData } from "../constants/shema.";
+import { apiRequest } from "@api/apiRequest";
+import type { ProfileResponse } from "@pages/my-page/apis/get-profile";
+import type { ProfileUpdateData } from "@pages/my-page/constants/shema.";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { QUERY_KEY } from "@constants/query-key";
+import { QUERY_KEY } from "@constants/index";
 
 export const updateProfile = async (
   userId: number,

@@ -1,6 +1,5 @@
 import { z } from "zod";
-import { baseProfileSchema } from "@/constants/auth-schema";
-import { ERRORS } from "../../constants/errors";
+import { baseProfileSchema, ERRORS } from "@constants/index";
 
 export const signUpSchema = baseProfileSchema.refine(
   (data) => data.confirmPassword === data.password,

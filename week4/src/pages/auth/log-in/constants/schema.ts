@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { baseProfileSchema } from "@/constants/auth-schema";
+import { baseProfileSchema } from "@constants/index";
 
 export const loginSchema = baseProfileSchema.pick({
   username: true,

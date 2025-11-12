@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import { PLACEHOLDER } from "@pages/auth/constants/index";
+import { PLACEHOLDER } from "@constants/index";
 import { Button, Input } from "@components/index";
 import { ROUTES } from "@router/constants/routes";
 

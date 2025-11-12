@@ -1,4 +1,4 @@
-import { apiRequest } from "@/api/apiRequest";
+import { apiRequest } from "@api/apiRequest";
 import { useQuery } from "@tanstack/react-query";
 import { QUERY_KEY } from "@constants/query-key";
 

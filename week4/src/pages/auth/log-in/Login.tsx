@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { ROUTES } from "@router/constants/routes";
 
 import { useLogin } from "@pages/auth/log-in/hooks/use-login";
-import { PLACEHOLDER } from "@pages/auth/constants/index";
+import { PLACEHOLDER } from "@constants/index";
 import { Button, Input } from "@components/index";
 
 export default function Login() {

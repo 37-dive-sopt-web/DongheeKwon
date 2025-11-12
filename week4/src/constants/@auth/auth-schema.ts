@@ -1,9 +1,9 @@
 import { z } from "zod";
 
-import { ERRORS } from "@pages/auth/constants/index";
+import { ERRORS } from "@constants/index";
 
 export const baseProfileSchema = z.object({
-  username: z.string().min(1, ERRORS.ID_REQUIRED),
+  username: z.string().min(1, ERRORS.ID_REQUIRED).max(50, ERRORS.ID_MAX_LENGTH),
   password: z
     .string()
     .min(1, ERRORS.PASSWORD_REQUIRED)

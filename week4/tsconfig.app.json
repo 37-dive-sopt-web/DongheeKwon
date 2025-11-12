@@ -31,7 +31,7 @@
       "@styles/*": ["./src/styles/*"],
       "@pages/*": ["./src/pages/*"],
       "@components/*": ["./src/components/*"],
-      "@util/*": ["./src/util/*"],
+      "@utils/*": ["./src/utils/*"],
       "@router/*": ["./src/router/*"]
     }
   },

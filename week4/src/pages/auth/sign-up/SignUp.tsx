@@ -7,7 +7,7 @@ export default function SignUp() {
     formData,
     errors,
     handleStep,
-    updateIdChange,
+    updateUsernameChange,
     updatePasswordChange,
     updateConfirmPasswordChange,
     handleSubmit,
@@ -19,12 +19,12 @@ export default function SignUp() {
   return (
     <div className="flex flex-col gap-[2rem]">
       <h1 className="text-primary-900 heading-sb-30">SignUp</h1>
-      {step === "id" && (
+      {step === "username" && (
         <Step1
-          updateIdChange={updateIdChange}
+          updateUsernameChange={updateUsernameChange}
           handleStep={handleStep}
-          id={formData.id ?? ""}
-          error={errors.id}
+          username={formData.username ?? ""}
+          error={errors.username}
         />
       )}
       {step === "password" && (

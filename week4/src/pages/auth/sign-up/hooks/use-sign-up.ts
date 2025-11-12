@@ -8,7 +8,9 @@ import {
 } from "@pages/auth/sign-up/constants/schema";
 
 export const useSignUp = () => {
-  const [step, setStep] = useState<"id" | "password" | "details">("id");
+  const [step, setStep] = useState<"username" | "password" | "details">(
+    "username"
+  );
 
   const {
     handleSubmit: handleSubmitForm,
@@ -18,7 +20,7 @@ export const useSignUp = () => {
   } = useForm<SignUpData>({
     resolver: zodResolver(signUpSchema),
     defaultValues: {
-      id: "",
+      username: "",
       password: "",
       confirmPassword: "",
       name: "",
@@ -34,12 +36,12 @@ export const useSignUp = () => {
     console.log(data);
   });
 
-  const handleStep = (nextStep: "id" | "password" | "details") => {
+  const handleStep = (nextStep: "username" | "password" | "details") => {
     setStep(nextStep);
   };
 
-  const updateIdChange = (id: string) => {
-    setValue("id", id, { shouldValidate: true });
+  const updateUsernameChange = (username: string) => {
+    setValue("username", username, { shouldValidate: true });
   };
 
   const updatePasswordChange = (password: string) => {
@@ -47,7 +49,9 @@ export const useSignUp = () => {
   };
 
   const updateConfirmPasswordChange = (confirmPassword: string) => {
-    setValue("confirmPassword", confirmPassword, { shouldValidate: true });
+    setValue("confirmPassword", confirmPassword, {
+      shouldValidate: true,
+    });
   };
 
   const updateNameChange = (name: string) => {
@@ -63,7 +67,7 @@ export const useSignUp = () => {
   };
 
   const compatibleErrors = {
-    id: errors.id?.message,
+    username: errors.username?.message,
     password: errors.password?.message,
     confirmPassword: errors.confirmPassword?.message,
     name: errors.name?.message,
@@ -76,7 +80,7 @@ export const useSignUp = () => {
     formData,
     errors: compatibleErrors,
     handleStep,
-    updateIdChange,
+    updateUsernameChange,
     updatePasswordChange,
     updateConfirmPasswordChange,
     updateNameChange,

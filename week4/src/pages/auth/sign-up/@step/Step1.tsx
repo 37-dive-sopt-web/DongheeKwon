@@ -6,23 +6,23 @@ import { Button, Input } from "@components/index";
 
 interface Step1Props {
   handleStep: (_nextStep: "password") => void;
-  updateIdChange: (id: string) => void;
-  id: string;
+  updateUsernameChange: (username: string) => void;
+  username: string;
   error?: string;
 }
 
 export default function Step1({
   handleStep,
-  updateIdChange,
-  id,
+  updateUsernameChange,
+  username,
   error,
 }: Step1Props) {
   return (
     <div className="flex flex-col gap-[1.5rem]">
       <Input
-        placeholder={PLACEHOLDER.ID}
-        value={id}
-        onChange={(e) => updateIdChange(e.target.value)}
+        placeholder={PLACEHOLDER.USERNAME}
+        value={username}
+        onChange={(e) => updateUsernameChange(e.target.value)}
       />
       {error && <p className="text-red body-size-14">{error}</p>}
       <div className="flex flex-col gap-[1rem]">

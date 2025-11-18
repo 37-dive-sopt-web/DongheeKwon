@@ -1,0 +1,110 @@
+@theme {
+  --color-*: initial;
+
+  /* White & Black */
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* Gray */
+  --color-gray-100: #fafafa;
+  --color-gray-150: #f5f5f5;
+  --color-gray-200: #eee;
+  --color-gray-300: #ddd;
+  --color-gray-400: #ccc;
+  --color-gray-500: #aaa;
+  --color-gray-600: #999;
+  --color-gray-700: #666;
+  --color-gray-800: #555;
+  --color-gray-900: #333;
+
+  /* Blue Gray */
+  --color-blue-gray-100: #d5eaf1;
+  --color-blue-gray-500: #5f7997;
+  --color-blue: #279cf6;
+
+  /* Red */
+  --color-red: #ff0000;
+  --color-red-800: #fc5555;
+
+  /* Green */
+  --color-green: #0eaf7a;
+
+  /* Cyan */
+  --color-cyan: #2c3e50;
+
+  /* font size */
+  --heading-sb-20: 2rem;
+  --font-size-sm: 1.4rem;
+  --font-size-base: 1.6rem;
+  --font-size-lg: 1.8rem;
+}
+
+@layer base {
+  html {
+    font-size: 62.5%;
+    font-family: Pretendard;
+  }
+  * {
+    box-sizing: border-box;
+  }
+
+  main {
+    background-color: var(--color-white);
+  }
+}
+
+@layer utilities {
+  /* Heading */
+  .heading-sb-20 {
+    font-size: var(--heading-sb-20);
+    font-weight: 600;
+    line-height: 150%;
+  }
+
+  /* Font size */
+  .font-size-sm {
+    font-size: var(--font-size-sm);
+  }
+  .font-size-base {
+    font-size: var(--font-size-base);
+  }
+  .font-size-lg {
+    font-size: var(--font-size-lg);
+  }
+
+  /* Card rotation */
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+  .rotate-y-0 {
+    transform: rotateY(0deg);
+  }
+  .card-layout {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    transition-opacity: duration-300;
+  }
+
+  /* Ranking */
+  .ranking-th {
+    text-align: center;
+    border-top: 1px solid var(--color-gray-200);
+    padding: 1rem;
+    font-size: var(--font-size-base);
+  }
+  .ranking-td {
+    text-align: center;
+    border-top: 1px solid var(--color-gray-200);
+    &:last-child {
+      border-bottom: 1px solid var(--color-gray-200);
+    }
+    padding: 1rem;
+    font-size: var(--font-size-base);
+  }
+}
